@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 22:40:23 by migugar2         ###   ########.fr       */
+/*   Created: 2024/09/19 16:49:31 by migugar2          #+#    #+#             */
+/*   Updated: 2024/09/19 17:00:14 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stddef.h>
 
-# include <stddef.h>
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-
-#endif
+	i = 0;
+	while (i + 1 < size && src[i])
+	{
+		dst[i] = (char) src[i];
+		i++;
+	}
+	if (size > 0)
+		dst[i] = 0;
+	while (src[i])
+		i++;
+	return (i);
+}

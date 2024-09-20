@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 22:39:32 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/19 22:41:09 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,17 @@ static void	test_ft_isalnum(void)
 	assert(ft_isalnum(' ') == 0 && "Check if ' ' is not an alphanumeric character");
 }
 
+static void	test_ft_isascii(void)
+{
+	assert(ft_isascii(0) == 1 && "Check if 0 is an ascii character");
+	assert(ft_isascii('a') == 1 && "Check if 'a' is an ascii character");
+	assert(ft_isascii(128) == 0 && "Check if 128 is not an ascii character");
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
 	test_ft_isdigit();
 	test_ft_isalnum();
+	test_ft_isascii();
 }

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 22:40:23 by migugar2         ###   ########.fr       */
+/*   Created: 2024/09/19 18:58:41 by migugar2          #+#    #+#             */
+/*   Updated: 2024/09/19 19:06:57 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-# include <stddef.h>
+char	*ft_strdup(const char *s)
+{
+	char	*s_dup;
+	size_t	l;
+	size_t	i;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-
-#endif
+	l = ft_strlen(s);
+	s_dup = malloc((l + 1) * sizeof(char));
+	if (s_dup == NULL)
+		return (s_dup);
+	i = 0;
+	while (i < l)
+	{
+		s_dup[i] = (char)s[i];
+		i++;
+	}
+	s_dup[i] = '\0';
+	return (s_dup);
+}
