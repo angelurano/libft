@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 22:40:23 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/21 09:56:43 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
+int		ft_isprint(int c);
 
 #endif
