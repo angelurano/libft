@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/21 09:56:21 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:02:24 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,20 @@ static void	test_ft_isprint(void)
 	assert(ft_isprint(128) == 0 && "Check if 128 is not a printable character");
 }
 
+static void	test_ft_toupper(void)
+{
+	assert(ft_toupper('a') == 'A' && "Check if 'a' is converted to 'A'");
+	assert(ft_toupper('A') == 'A' && "Check if 'A' remains 'A'");
+	assert(ft_toupper('1') == '1' && "Check if '1' remains '1'");
+}
+
+static void	test_ft_tolower(void)
+{
+	assert(ft_tolower('A') == 'a' && "Check if 'A' is converted to 'a'");
+	assert(ft_tolower('a') == 'a' && "Check if 'a' remains 'a'");
+	assert(ft_tolower('1') == '1' && "Check if '1' remains '1'");
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -57,4 +71,6 @@ int	main(void)
 	test_ft_isalnum();
 	test_ft_isascii();
 	test_ft_isprint();
+	test_ft_tolower();
+	test_ft_toupper();
 }
