@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 14:59:23 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/17 20:37:08 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:24:47 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*p;
-	char	*r;
+	unsigned char	*p;
+	char			*r;
 
 	r = NULL;
-	p = (char *)s;
+	p = (unsigned char *)s;
 	while (*p)
 	{
-		if (*p == (char)c)
-			r = p;
+		if (*p == (unsigned char)c)
+			r = (char *)p;
 		p++;
 	}
-	if (c == 0)
-		r = p;
+	if ((unsigned char)c == '\0')
+		return ((char *)p);
 	return (r);
 }
