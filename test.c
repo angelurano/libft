@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/21 11:19:24 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/21 12:17:18 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,66 @@ static void	test_ft_bzero(void)
 	free(str2);
 }
 
+static void	test_ft_memcpy(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)malloc(10);
+	str2 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	memset(str2, 'a', 10);
+	ft_memcpy(str1, str2, 10);
+	memcpy(str2, str1, 10);
+	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_memcpy and memcpy");
+	free(str1);
+	free(str2);
+}
+
+static void	test_ft_memmove(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)malloc(10);
+	str2 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	memset(str2, 'a', 10);
+	ft_memmove(str1, str2, 10);
+	memmove(str2, str1, 10);
+	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_memmove and memmove");
+	free(str1);
+	free(str2);
+}
+
+static void	test_ft_memchr(void)
+{
+	char	*str1;
+
+	str1 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	assert(ft_memchr(str1, 'a', 10) == memchr(str1, 'a', 10) && "Check if 'a' is in str for ft_memchr and memchr");
+	assert(ft_memchr(str1, 'b', 10) == memchr(str1, 'b', 10) && "Check if 'b' is not in str for ft_memchr and memchr");
+	free(str1);
+}
+
+static void	test_ft_memcmp(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)malloc(10);
+	str2 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	memset(str2, 'a', 10);
+	assert(ft_memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_memcmp and memcmp");
+	str1[5] = 'b';
+	str2[5] = 'c';
+	assert(ft_memcmp(str1, str2, 10) == memcmp(str1, str2, 10) && "Check if str's are different for ft_memcmp and memcmp");
+	free(str1);
+	free(str2);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -132,14 +192,22 @@ int	main(void)
 	test_ft_isalnum();
 	test_ft_isascii();
 	test_ft_isprint();
+
 	test_ft_tolower();
 	test_ft_toupper();
+
 	test_ft_strlen();
 	test_ft_strchr();
 	test_ft_strrchr();
 	test_ft_strncmp();
+
 	test_ft_memset();
 	test_ft_bzero();
+
+	test_ft_memcpy();
+	test_ft_memmove();
+	test_ft_memchr();
+	test_ft_memcmp();
 
 	printf("All tests passed!\n");
 }
