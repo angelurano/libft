@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/21 10:42:48 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/21 11:19:24 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,36 @@ static void	test_ft_strncmp(void)
 	assert(ft_strncmp("Hello", "Hello", 0) == strncmp("Hello", "Hello", 0) && "Check if '' is the same in ft_strncmp and strncmp");
 }
 
+static void	test_ft_memset(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)malloc(10);
+	str2 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	memset(str2, 'a', 10);
+	assert(memcmp(str1, str2, 10) == 0 && "Check if 'aaaaaaaaaa' is the same in ft_memset and memset");
+	free(str1);
+	free(str2);
+}
+
+static void	test_ft_bzero(void)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = (char *)malloc(10);
+	str2 = (char *)malloc(10);
+	ft_memset(str1, 'a', 10);
+	memset(str2, 'a', 10);
+	ft_bzero(str1, 10);
+	bzero(str2, 10);
+	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_bzero and bzero");
+	free(str1);
+	free(str2);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -108,6 +138,8 @@ int	main(void)
 	test_ft_strchr();
 	test_ft_strrchr();
 	test_ft_strncmp();
+	test_ft_memset();
+	test_ft_bzero();
 
 	printf("All tests passed!\n");
 }
