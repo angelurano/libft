@@ -6,9 +6,17 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:42:45 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 17:47:54 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:38:19 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+static int	ft_isspace(int c)
+{
+	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t'
+		|| c == '\v')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -19,9 +27,12 @@ int	ft_atoi(const char *nptr)
 	r = 0;
 	i = 0;
 	sign = 1;
-	if (nptr[i] == '-')
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		sign = -1;
+		if (nptr[i] == '-')
+			sign = -1;
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')

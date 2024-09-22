@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/22 18:26:30 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:40:56 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,15 @@ static void	test_ft_strnstr(void)
 	free(str1);
 }
 
+static void	test_ft_atoi(void)
+{
+	assert(ft_atoi("123") == 123 && "Check if '123' is 123 for ft_atoi");
+	assert(ft_atoi("-123") == -123 && "Check if '-123' is -123 for ft_atoi");
+	assert(ft_atoi("123a") == 123 && "Check if '123a' is 123 for ft_atoi");
+	assert(ft_atoi("a123") == 0 && "Check if 'a123' is 0 for ft_atoi");
+	assert(ft_atoi(" 123") == 123 && "Check if ' 123' is 123 for ft_atoi");
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -246,6 +255,8 @@ int	main(void)
 	test_ft_strlcpy();
 	test_ft_strlcat();
 	test_ft_strnstr();
+
+	test_ft_atoi();
 
 	printf("All tests passed!\n");
 }
