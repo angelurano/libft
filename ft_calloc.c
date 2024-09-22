@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:48:52 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 18:56:17 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/22 19:08:06 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
 	p = malloc(nmemb * size);
 	if (p == NULL)
 		return (p);

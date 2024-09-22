@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/22 19:59:11 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/22 20:31:15 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,34 @@ static void	test_ft_atoi(void)
 	assert(ft_atoi(" 123") == 123 && "Expected ' 123' to convert to integer 123 with ft_atoi");
 }
 
+static void	test_ft_calloc(void)
+{
+	// NULL pointer is returned when allocation fails, we just check if the pointer is NULL or not
+	char *str1 = (char *)ft_calloc(0, 1);
+	assert((str1 == NULL || str1 != NULL) && "Expected ft_calloc to return a NULL or valid pointer when allocating 0 elements");
+	free(str1);
+
+	str1 = (char *)ft_calloc(10, 0);
+	assert((str1 == NULL || str1 != NULL) && "Expected ft_calloc to return a NULL or valid pointer when allocating elements of size 0");
+	free(str1);
+
+	str1 = (char *)ft_calloc(10, 1);
+	assert(str1 != NULL && "Expected ft_calloc to return a non-NULL pointer when allocating 10 bytes");
+	assert(ft_memchr(str1, 0, 10) != NULL && "Expected memory to be zeroed after ft_calloc");
+	free(str1);
+}
+
+static void	test_ft_strdup(void)
+{
+	char *str1 = ft_strdup("Hello");
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Expected 'Hello' to be copied correctly by ft_strdup");
+	free(str1);
+
+	str1 = ft_strdup("");
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected empty string to be copied correctly by ft_strdup");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -276,6 +304,9 @@ int	main(void)
 	test_ft_strnstr();
 
 	test_ft_atoi();
+
+	test_ft_calloc();
+	test_ft_strdup();
 
 	printf("All tests passed!\n");
 }
