@@ -6,16 +6,15 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/21 12:17:18 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:26:30 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <assert.h>
-#include <string.h>
 #include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
+#include <bsd/string.h>
 
 static void	test_ft_isalpha(void)
 {
@@ -116,8 +115,6 @@ static void	test_ft_bzero(void)
 
 	str1 = (char *)malloc(10);
 	str2 = (char *)malloc(10);
-	ft_memset(str1, 'a', 10);
-	memset(str2, 'a', 10);
 	ft_bzero(str1, 10);
 	bzero(str2, 10);
 	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_bzero and bzero");
@@ -129,16 +126,20 @@ static void	test_ft_memcpy(void)
 {
 	char	*str1;
 	char	*str2;
+	char	*str3;
 
 	str1 = (char *)malloc(10);
 	str2 = (char *)malloc(10);
+	str3 = (char *)malloc(10);
 	ft_memset(str1, 'a', 10);
 	memset(str2, 'a', 10);
-	ft_memcpy(str1, str2, 10);
-	memcpy(str2, str1, 10);
-	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_memcpy and memcpy");
+	ft_memcpy(str3, str1, 10);
+	assert(memcmp(str1, str3, 10) == 0 && "Check if str's are the same for ft_memcpy and memcpy");
+	ft_memcpy(str3, str2, 10);
+	assert(memcmp(str1, str3, 10) == 0 && "Check if str's are the same for ft_memcpy and memcpy");
 	free(str1);
 	free(str2);
+	free(str3);
 }
 
 static void	test_ft_memmove(void)
@@ -147,14 +148,11 @@ static void	test_ft_memmove(void)
 	char	*str2;
 
 	str1 = (char *)malloc(10);
-	str2 = (char *)malloc(10);
+	str2 = str1 + 5;
 	ft_memset(str1, 'a', 10);
-	memset(str2, 'a', 10);
-	ft_memmove(str1, str2, 10);
-	memmove(str2, str1, 10);
-	assert(memcmp(str1, str2, 10) == 0 && "Check if str's are the same for ft_memmove and memmove");
+	ft_memmove(str2, str1, 5);
+	assert(memcmp(str1, str2, 5) == 0 && "Check if memmove works with overlapping memory");
 	free(str1);
-	free(str2);
 }
 
 static void	test_ft_memchr(void)
@@ -185,6 +183,42 @@ static void	test_ft_memcmp(void)
 	free(str2);
 }
 
+static void	test_ft_strlcpy(void)
+{
+	char	*str1;
+
+	str1 = (char *)malloc(10);
+	ft_strlcpy(str1, "Hello", 10);
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Check if 'Hello' is the same in str for ft_strlcpy and strlcpy");
+	ft_strlcpy(str1, "World", 0);
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Check if 'Hello' is the same in str for ft_strlcpy and strlcpy");
+	free(str1);
+}
+
+static void	test_ft_strlcat(void)
+{
+	char	*str1;
+
+	str1 = (char *)malloc(10);
+	ft_strlcpy(str1, "Hello", 10);
+	ft_strlcat(str1, "World", 10);
+	assert(ft_strncmp(str1, "HelloWorl", 10) == 0 && "Check if 'HelloWorl' is the same in str for ft_strlcat");
+	ft_strlcat(str1, "d", 10);
+	assert(ft_strncmp(str1, "HelloWorl", 10) == 0 && "Check if 'HelloWorl' is the same in str for ft_strlcat");
+	free(str1);
+}
+
+static void	test_ft_strnstr(void)
+{
+	char	*str1;
+
+	str1 = (char *)malloc(10);
+	ft_strlcpy(str1, "Hello", 10);
+	assert(ft_strnstr(str1, "Hello", 10) == str1 && "Check if 'Hello' is in str for ft_strnstr");
+	assert(ft_strnstr(str1, "World", 10) == NULL && "Check if 'World' is not in str for ft_strnstr");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -208,6 +242,10 @@ int	main(void)
 	test_ft_memmove();
 	test_ft_memchr();
 	test_ft_memcmp();
+
+	test_ft_strlcpy();
+	test_ft_strlcat();
+	test_ft_strnstr();
 
 	printf("All tests passed!\n");
 }
