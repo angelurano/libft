@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/22 20:31:15 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:18:19 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,6 +275,21 @@ static void	test_ft_strdup(void)
 	free(str1);
 }
 
+static void	test_ft_substr(void)
+{
+	char *str1 = ft_substr("Hello", 1, 3);
+	assert(ft_strncmp(str1, "ell", 10) == 0 && "Expected 'ell' to be copied correctly by ft_substr");
+	free(str1);
+
+	str1 = ft_substr("Hello", 1, 10);
+	assert(ft_strncmp(str1, "ello", 10) == 0 && "Expected 'ello' to be copied correctly by ft_substr");
+	free(str1);
+
+	str1 = ft_substr("World", 10, 10);
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected '' to be returned when start is out of bounds");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -307,6 +322,8 @@ int	main(void)
 
 	test_ft_calloc();
 	test_ft_strdup();
+
+	test_ft_substr();
 
 	printf("All tests passed!\n");
 }
