@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 16:57:54 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 18:45:53 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,6 +335,30 @@ static void	test_ft_strtrim(void)
 	free(str1);
 }
 
+static void test_ft_split(void)
+{
+	char **str1 = ft_split("Hello World", ' ');
+	assert(ft_strncmp(str1[0], "Hello", 10) == 0 && "Expected 'Hello' to be split correctly by ft_split");
+	assert(ft_strncmp(str1[1], "World", 10) == 0 && "Expected 'World' to be split correctly by ft_split");
+	free(str1[0]);
+	free(str1[1]);
+	free(str1);
+
+	str1 = ft_split("Hello World", 'o');
+	assert(ft_strncmp(str1[0], "Hell", 10) == 0 && "Expected 'Hell' to be split correctly by ft_split");
+	assert(ft_strncmp(str1[1], " W", 10) == 0 && "Expected ' W' to be split correctly by ft_split");
+	assert(ft_strncmp(str1[2], "rld", 10) == 0 && "Expected 'rld' to be split correctly by ft_split");
+	free(str1[0]);
+	free(str1[1]);
+	free(str1[2]);
+	free(str1);
+
+	str1 = ft_split("Hello World", '\0');
+	assert(ft_strncmp(str1[0], "Hello World", 10) == 0 && "Expected 'Hello World' to be split correctly by ft_split");
+	free(str1[0]);
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -371,6 +395,7 @@ int	main(void)
 	test_ft_substr();
 	test_ft_strjoin();
 	test_ft_strtrim();
+	test_ft_split();
 
 	printf("All tests passed!\n");
 }

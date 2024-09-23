@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:58:41 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 19:06:57 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 17:14:24 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	l = ft_strlen(s);
-	s_dup = malloc((l + 1) * sizeof(char));
+	s_dup = malloc(sizeof(char) * (l + 1));
 	if (s_dup == NULL)
 		return (s_dup);
 	i = 0;
