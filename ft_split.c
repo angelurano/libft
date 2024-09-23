@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:04:12 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 19:24:51 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:45:33 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,16 @@ static char	**free_r(char **r, size_t i)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**get_r(const char *s, int c, size_t q)
 {
 	char	**r;
-	size_t	q;
-	size_t	l;
 	size_t	i;
 	size_t	j;
+	size_t	l;
 
-	q = get_q_words(s, c);
 	r = (char **)malloc(sizeof(char *) * (q + 1));
 	if (r == NULL)
-		return (r);
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (i < q)
@@ -81,4 +79,14 @@ char	**ft_split(char const *s, char c)
 	}
 	r[i] = NULL;
 	return (r);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	q;
+
+	if (s == NULL)
+		return (NULL);
+	q = get_q_words(s, c);
+	return (get_r(s, c, q));
 }

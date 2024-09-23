@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 19:28:05 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 21:08:26 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -382,6 +382,39 @@ static void	test_ft_itoa(void)
 	free(str1);
 }
 
+static char tmp_ft_strmapi(unsigned int i, char c)
+{
+	(void) c;
+	return (char) (i + 'a');
+}
+
+static void	test_ft_strmapi(void)
+{
+	char *str1 = ft_strmapi("Hello", tmp_ft_strmapi);
+	assert(ft_strncmp(str1, "abcde", 10) == 0 && "Expected 'abcde' to be generated correctly by ft_strmapi");
+	free(str1);
+
+	str1 = ft_strmapi("", &tmp_ft_strmapi);
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected empty string to be generated correctly by ft_strmapi");
+	free(str1);
+}
+
+static void tmp_ft_striteri(unsigned int i, char *c)
+{
+	*c = (char) (i + 'a');
+}
+
+static void	test_ft_striteri(void)
+{
+	char str1[6] = "Hello";
+	ft_striteri(str1, &tmp_ft_striteri);
+	assert(ft_strncmp(str1, "abcde", 10) == 0 && "Expected 'abcde' to be generated correctly by ft_striteri");
+
+	char str2[1] = "";
+	ft_striteri(str2, &tmp_ft_striteri);
+	assert(ft_strncmp(str2, "", 10) == 0 && "Expected empty string to be generated correctly by ft_striteri");
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -420,6 +453,8 @@ int	main(void)
 	test_ft_strtrim();
 	test_ft_split();
 	test_ft_itoa();
+	test_ft_strmapi();
+	test_ft_striteri();
 
 	printf("All tests passed!\n");
 }

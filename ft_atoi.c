@@ -6,9 +6,11 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:42:45 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/22 18:38:19 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:58:49 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	ft_isspace(int c)
 {
@@ -35,7 +37,7 @@ int	ft_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (ft_isdigit(nptr[i]))
 	{
 		r = (r * 10) + (nptr[i] - '0');
 		i++;

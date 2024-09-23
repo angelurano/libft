@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 20:34:29 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 20:37:35 by migugar2         ###   ########.fr       */
+/*   Created: 2024/09/23 19:47:50 by migugar2          #+#    #+#             */
+/*   Updated: 2024/09/23 20:24:45 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*r;
 	size_t	i;
-	size_t	s_len;
 
-	if (s == NULL)
+	if (f == NULL || s == NULL)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		len = 0;
-	else if (len > (s_len - start))
-		len = s_len - start;
-	r = (char *)malloc(sizeof(char) * (len + 1));
+	r = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (r == NULL)
-		return (r);
+		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[i])
 	{
-		r[i] = (char)s[start + i];
+		r[i] = f(i, s[i]);
 		i++;
 	}
 	r[i] = '\0';

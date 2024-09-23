@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:22:36 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 16:44:17 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:38:14 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	r_trim;
 	size_t	s_len;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	l_trim = 0;
 	while (s1[l_trim] && set_contains(set, s1[l_trim]))
 		l_trim++;
