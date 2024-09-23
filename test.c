@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 14:18:19 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:21:42 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -290,6 +290,28 @@ static void	test_ft_substr(void)
 	free(str1);
 }
 
+static void	test_ft_strjoin(void)
+{
+	char *str1 = ft_strjoin("Hello", " ");
+	char *str2 = ft_strjoin(str1, "World");
+	assert(ft_strncmp(str1, "Hello ", 10) == 0 && "Expected 'Hello ' to be concatenated correctly by ft_strjoin");
+	free(str1);
+	assert(ft_strncmp(str2, "Hello World", 10) == 0 && "Expected 'Hello World' to be concatenated correctly by ft_strjoin");
+	free(str2);
+
+	str1 = ft_strjoin("", "World");
+	assert(ft_strncmp(str1, "World", 10) == 0 && "Expected 'World' to be concatenated correctly by ft_strjoin");
+	free(str1);
+
+	str1 = ft_strjoin("Hello", "");
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Expected 'Hello' to be concatenated correctly by ft_strjoin");
+	free(str1);
+
+	str1 = ft_strjoin("", "");
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected empty string to be concatenated correctly by ft_strjoin");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -324,6 +346,7 @@ int	main(void)
 	test_ft_strdup();
 
 	test_ft_substr();
+	test_ft_strjoin();
 
 	printf("All tests passed!\n");
 }
