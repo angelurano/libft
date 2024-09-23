@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 18:45:53 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:28:05 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -359,6 +359,29 @@ static void test_ft_split(void)
 	free(str1);
 }
 
+static void	test_ft_itoa(void)
+{
+	char *str1 = ft_itoa(123);
+	assert(ft_strncmp(str1, "123", 10) == 0 && "Expected '123' to be converted correctly by ft_itoa");
+	free(str1);
+
+	str1 = ft_itoa(-123);
+	assert(ft_strncmp(str1, "-123", 10) == 0 && "Expected '-123' to be converted correctly by ft_itoa");
+	free(str1);
+
+	str1 = ft_itoa(-0);
+	assert(ft_strncmp(str1, "0", 10) == 0 && "Expected '0' to be converted correctly by ft_itoa");
+	free(str1);
+
+	str1 = ft_itoa(2147483647);
+	assert(ft_strncmp(str1, "2147483647", 10) == 0 && "Expected '2147483647' to be converted correctly by ft_itoa");
+	free(str1);
+
+	str1 = ft_itoa(-2147483648);
+	assert(ft_strncmp(str1, "-2147483648", 10) == 0 && "Expected '-2147483648' to be converted correctly by ft_itoa");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -396,6 +419,7 @@ int	main(void)
 	test_ft_strjoin();
 	test_ft_strtrim();
 	test_ft_split();
+	test_ft_itoa();
 
 	printf("All tests passed!\n");
 }
