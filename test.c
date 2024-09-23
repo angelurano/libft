@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 19:14:37 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 14:21:42 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/09/23 16:57:54 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -312,6 +312,29 @@ static void	test_ft_strjoin(void)
 	free(str1);
 }
 
+static void	test_ft_strtrim(void)
+{
+	char *str1 = ft_strtrim("  Hello  ", " ");
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Expected 'Hello' to be trimmed correctly by ft_strtrim");
+	free(str1);
+
+	str1 = ft_strtrim("  Hello  ", "Helo ");
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected all characters to be trimmed when set contains all characters");
+	free(str1);
+
+	str1 = ft_strtrim("Hello", "");
+	assert(ft_strncmp(str1, "Hello", 10) == 0 && "Expected no change when set is empty");
+	free(str1);
+
+	str1 = ft_strtrim("", "Hello");
+	assert(ft_strncmp(str1, "", 10) == 0 && "Expected empty string when input is empty");
+	free(str1);
+
+	str1 = ft_strtrim("***Hello**World***", "*");
+	assert(ft_strncmp(str1, "Hello**World", 10) == 0 && "Expected to trim '*' characters from both ends");
+	free(str1);
+}
+
 int	main(void)
 {
 	test_ft_isalpha();
@@ -347,6 +370,7 @@ int	main(void)
 
 	test_ft_substr();
 	test_ft_strjoin();
+	test_ft_strtrim();
 
 	printf("All tests passed!\n");
 }
