@@ -6,14 +6,14 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:22:36 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 20:38:14 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:45:57 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-static int	set_contains(char const *set, int c)
+static int	set_contains(char const *set, char c)
 {
 	size_t	i;
 

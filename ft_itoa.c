@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 18:46:47 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 20:47:46 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:42:48 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*get_r(int n, int sign, size_t i)
 
 	r = (char *)malloc(sizeof(char) * (i + 1));
 	if (r == NULL)
-		return (r);
+		return (NULL);
 	r[i] = '\0';
 	i--;
 	while (n != 0)

@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 13:53:15 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 20:37:54 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:44:16 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	r = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (r == NULL)
-		return (r);
+		return (NULL);
 	i = 0;
 	while (i < s1_len || i < s2_len)
 	{

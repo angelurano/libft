@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:06:12 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/19 17:39:59 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:58:18 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (little[0] == '\0')
+	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
 	j = 0;

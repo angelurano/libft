@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 20:34:29 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/23 20:37:35 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/10/18 20:44:47 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = s_len - start;
 	r = (char *)malloc(sizeof(char) * (len + 1));
 	if (r == NULL)
-		return (r);
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
