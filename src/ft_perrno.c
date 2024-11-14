@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_errno.c                                   :+:      :+:    :+:   */
+/*   ft_perrno.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 00:28:26 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/14 00:54:55 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/14 22:50:05 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 int	ft_perrno(const char *arg)
 {
-	int	errnum;
-
-	errnum = errno;
-	ft_perror(errnum, arg);
-	return (errnum);
+	return (ft_perror(errno, arg));
 }

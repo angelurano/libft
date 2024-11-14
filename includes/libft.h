@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/13 12:44:07 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/14 23:05:31 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include "get_next_line.h"
 # include "ft_printf.h"
+# include "ft_errors.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -6,13 +6,14 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 13:43:41 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/13 12:41:29 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/14 22:48:37 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <stddef.h>
 # include <stdarg.h>
 # include <unistd.h>
 
@@ -25,7 +26,8 @@ int	ft_putstr_fd(int fd, char *str);
 int	ft_putendl_fd(int fd, char *str);
 
 int	ft_printfv_fd(int fd, char const *format, va_list args);
-int	ft_print_fd(int fd, char const *format, ...);
+int	ft_printf_fd(int fd, char const *format, ...);
+int	ft_printf_error(char const *format, ...);
 int	ft_printf(char const *format, ...);
 
 #endif
