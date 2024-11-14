@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_free_str_trimatrix.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 16:51:59 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/24 17:55:52 by migugar2         ###   ########.fr       */
+/*   Created: 2024/10/24 20:34:20 by migugar2          #+#    #+#             */
+/*   Updated: 2024/10/24 21:31:06 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	***ft_free_str_trimatrix(char ***matrix)
 {
-	char	c;
+	size_t	i;
+	size_t	j;
 
-	if (n == -2147483648)
-		return ((void)write(fd, "-2147483648", 11));
-	if (n < 0)
+	if (matrix != NULL)
 	{
-		write(fd, "-", 1);
-		n = -n;
+		i = 0;
+		while (matrix[i] != NULL)
+		{
+			j = 0;
+			while (matrix[i][j] != NULL)
+			{
+				free(matrix[i][j]);
+				j++;
+			}
+			free(matrix[i]);
+			i++;
+		}
+		free(matrix);
 	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-	}
-	c = (n % 10) + '0';
-	write(fd, &c, 1);
+	return (NULL);
 }

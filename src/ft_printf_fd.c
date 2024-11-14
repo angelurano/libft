@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 15:11:57 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/18 20:45:30 by migugar2         ###   ########.fr       */
+/*   Created: 2024/09/28 13:40:41 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/13 12:51:35 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include "ft_printf.h"
+#include <stddef.h>
+#include <stdarg.h>
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_print_fd(int fd, char const *format, ...)
 {
-	if (s == NULL)
-		return ;
-	write(fd, s, ft_strlen(s));
+	int		count;
+	va_list	args;
+
+	va_start(args, format);
+	count = ft_printfv_fd(fd, format, args);
+	va_end(args);
+	return (count);
 }

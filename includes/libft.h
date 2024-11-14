@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/09/25 16:59:23 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:44:07 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "get_next_line.h"
+# include "ft_printf.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -54,11 +58,6 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-
 typedef struct s_list
 {
 	void			*content;
@@ -74,5 +73,11 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+char	*ft_free_str(char **str);
+char	**ft_free_str_matrix(char **matrix);
+char	**ft_free_str_matrix_r(char **matrix, size_t i);
+char	***ft_free_str_trimatrix(char ***matrix);
+char	***ft_free_str_trimatrix_r(char ***matrix, size_t i);
 
 #endif

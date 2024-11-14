@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 18:58:41 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/18 20:54:51 by migugar2         ###   ########.fr       */
+/*   Created: 2024/09/28 14:21:44 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/13 12:29:50 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stddef.h>
-#include <stdlib.h>
-#include "libft.h"
 
-char	*ft_strdup(const char *s)
+int	ft_putstr_fd(int fd, char *str)
 {
-	char	*s_dup;
-	size_t	l;
+	int		count;
 	size_t	i;
 
-	l = ft_strlen(s);
-	s_dup = malloc(sizeof(char) * (l + 1));
-	if (s_dup == NULL)
-		return (NULL);
+	if (str == NULL)
+		return (ft_putstr_fd(fd, "(null)"));
+	count = 0;
 	i = 0;
-	while (i < l)
+	while (str[i])
 	{
-		s_dup[i] = (char)s[i];
+		count += ft_putchar_fd(fd, str[i]);
 		i++;
 	}
-	s_dup[i] = '\0';
-	return (s_dup);
+	return (count);
 }
