@@ -66,7 +66,7 @@ SRC = $(SRC_DIR)/ft_isalpha.c	\
 	$(SRC_DIR)/ft_printf_fd.c	\
 	$(SRC_DIR)/ft_printf_error.c	\
 	$(SRC_DIR)/ft_printf.c	\
-	$(SRC_DIR)/set_errno.c	\
+	$(SRC_DIR)/seterrno.c	\
 	$(SRC_DIR)/ft_perror.c	\
 	$(SRC_DIR)/ft_perrno.c	\
 	$(SRC_DIR)/ft_exit.c	\
