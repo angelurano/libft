@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 19:15:02 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/16 12:38:40 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 20:23:46 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	**ft_freeintmatrix(int ***matrix, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		ft_free((void **)&(*matrix)[i]);
+		free((*matrix)[i]);
+		*matrix[i] = NULL;
 		i++;
 	}
-	ft_free((void **)matrix);
+	free(*matrix);
+	*matrix = NULL;
 	return (NULL);
 }

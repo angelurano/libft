@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:12:10 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/16 12:41:40 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 20:24:02 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**ft_freestrarr_r(char ***arr, size_t i)
 		i--;
 		ft_freestr(&(*arr)[i]);
 	}
-	ft_free((void **)arr);
+	free(*arr);
+	*arr = NULL;
 	return (NULL);
 }

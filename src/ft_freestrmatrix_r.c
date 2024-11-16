@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:38:36 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/16 12:51:14 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:33:34 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	***ft_freestrmatrix_r(char ****matrix, size_t i)
 		i--;
 		ft_freestrarr(&(*matrix)[i]);
 	}
-	ft_free((void **)matrix);
+	free(*matrix);
+	*matrix = NULL;
 	return (NULL);
 }
