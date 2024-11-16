@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_str_trimatrix.c                            :+:      :+:    :+:   */
+/*   ft_freestrarr_r.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 20:34:20 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/24 21:31:06 by migugar2         ###   ########.fr       */
+/*   Created: 2024/10/25 22:12:10 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/16 12:41:40 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,15 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	***ft_free_str_trimatrix(char ***matrix)
+char	**ft_freestrarr_r(char ***arr, size_t i)
 {
-	size_t	i;
-	size_t	j;
-
-	if (matrix != NULL)
+	if (arr == NULL || *arr == NULL)
+		return (NULL);
+	while (i > 0)
 	{
-		i = 0;
-		while (matrix[i] != NULL)
-		{
-			j = 0;
-			while (matrix[i][j] != NULL)
-			{
-				free(matrix[i][j]);
-				j++;
-			}
-			free(matrix[i]);
-			i++;
-		}
-		free(matrix);
+		i--;
+		ft_freestr(&(*arr)[i]);
 	}
+	ft_free((void **)arr);
 	return (NULL);
 }

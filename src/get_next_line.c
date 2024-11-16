@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:18:35 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/13 12:12:38 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 13:04:57 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ static char	*get_new_saved(char **saved, char *new_line, size_t line_len)
 
 	line = ft_substr(*saved, 0, line_len);
 	if (line == NULL)
-		return (ft_free_str(saved));
+		return (ft_freestr(saved));
 	new_line++;
 	if (new_line[0] != '\0')
 	{
 		new_saved = ft_strdup(new_line);
 		if (new_saved == NULL)
-			return (ft_free_str(&line), ft_free_str(saved));
+			return (ft_freestr(&line), ft_freestr(saved));
 	}
 	else
 		new_saved = NULL;
-	ft_free_str(saved);
+	ft_freestr(saved);
 	*saved = new_saved;
 	return (line);
 }
@@ -43,7 +43,7 @@ char	*extract_line(char **saved)
 	if (new_line != NULL)
 		return (get_new_saved(saved, new_line, new_line - *saved + 1));
 	if ((*saved)[0] == '\0')
-		return (ft_free_str(saved));
+		return (ft_freestr(saved));
 	line = *saved;
 	*saved = NULL;
 	return (line);
@@ -61,15 +61,15 @@ char	*read_until_eol_eof(int fd, char **saved, char **buffer)
 	{
 		bytes_read = read(fd, *buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
-			return (ft_free_str(saved), ft_free_str(buffer));
+			return (ft_freestr(saved), ft_freestr(buffer));
 		if (bytes_read > 0)
 		{
 			(*buffer)[bytes_read] = '\0';
 			compared = *buffer;
 			temp = ft_strjoin(*saved, *buffer);
 			if (temp == NULL)
-				return (ft_free_str(saved), ft_free_str(buffer));
-			ft_free_str(saved);
+				return (ft_freestr(saved), ft_freestr(buffer));
+			ft_freestr(saved);
 			*saved = temp;
 		}
 	}
@@ -90,11 +90,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffer == NULL)
-		return (ft_free_str(&saved[fd]));
+		return (ft_freestr(&saved[fd]));
 	saved[fd] = read_until_eol_eof(fd, &saved[fd], &buffer);
 	if (saved[fd] == NULL)
-		return (ft_free_str(&buffer), NULL);
+		return (ft_freestr(&buffer), NULL);
 	line = extract_line(&saved[fd]);
-	ft_free_str(&buffer);
+	ft_freestr(&buffer);
 	return (line);
 }

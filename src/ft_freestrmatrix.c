@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_str_matrix_r.c                             :+:      :+:    :+:   */
+/*   ft_freestrmatrix.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 22:12:10 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/25 22:12:46 by migugar2         ###   ########.fr       */
+/*   Created: 2024/10/24 20:34:20 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/16 12:51:41 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdlib.h>
+#include "libft.h"
 
-char	**ft_free_str_matrix_r(char **matrix, size_t i)
+char	***ft_freestrmatrix(char ****matrix)
 {
-	if (matrix != NULL)
+	size_t	i;
+
+	if (matrix == NULL || *matrix == NULL)
+		return (NULL);
+	i = 0;
+	while ((*matrix)[i] != NULL)
 	{
-		while (i > 0)
-		{
-			free(matrix[i - 1]);
-			i--;
-		}
-		free(matrix);
+		ft_freestrarr(&(*matrix)[i]);
+		i++;
 	}
+	ft_free((void **)matrix);
 	return (NULL);
 }

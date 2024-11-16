@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_int_matrix.c                               :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 19:15:02 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/27 19:18:28 by migugar2         ###   ########.fr       */
+/*   Created: 2024/11/16 12:18:19 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/16 12:55:06 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int	**ft_free_int_matrix(int **matrix, size_t size)
+int	ft_close(int *fd)
 {
-	size_t	i;
-
-	if (matrix == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-	return (NULL);
+	if (fd == NULL)
+		return (-1);
+	if (*fd == -1)
+		return (0);
+	if (close(*fd) == -1)
+		return (-1);
+	*fd = -1;
+	return (0);
 }

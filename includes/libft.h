@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/14 23:05:31 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 12:52:13 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,16 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-char	*ft_free_str(char **str);
-char	**ft_free_str_matrix(char **matrix);
-char	**ft_free_str_matrix_r(char **matrix, size_t i);
-char	***ft_free_str_trimatrix(char ***matrix);
-char	***ft_free_str_trimatrix_r(char ***matrix, size_t i);
+void	*ft_free(void **ptr);
+
+int		**ft_freeintmatrix(int ***matrix, size_t size);
+
+char	*ft_freestr(char **str);
+char	**ft_freestrarr_r(char ***arr, size_t i);
+char	**ft_freestrarr(char ***arr);
+char	***ft_freestrmatrix_r(char ****matrix, size_t i);
+char	***ft_freestrmatrix(char ****matrix);
+
+int		ft_close(int *fd);
 
 #endif

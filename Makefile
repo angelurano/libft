@@ -10,7 +10,8 @@ RM = rm -f
 INCLUDES = -I includes
 
 SRC_DIR = src
-SRC = $(SRC_DIR)/ft_isalpha.c	\
+SRC = \
+	$(SRC_DIR)/ft_isalpha.c	\
 	$(SRC_DIR)/ft_isdigit.c	\
 	$(SRC_DIR)/ft_isalnum.c	\
 	$(SRC_DIR)/ft_isascii.c	\
@@ -49,12 +50,14 @@ SRC = $(SRC_DIR)/ft_isalpha.c	\
 	$(SRC_DIR)/ft_lstclear.c	\
 	$(SRC_DIR)/ft_lstiter.c	\
 	$(SRC_DIR)/ft_lstmap.c	\
-	$(SRC_DIR)/ft_free_str.c	\
-	$(SRC_DIR)/ft_free_str_matrix.c	\
-	$(SRC_DIR)/ft_free_str_matrix_r.c	\
-	$(SRC_DIR)/ft_free_str_trimatrix.c	\
-	$(SRC_DIR)/ft_free_str_trimatrix_r.c	\
-	$(SRC_DIR)/ft_free_int_matrix.c	\
+	$(SRC_DIR)/ft_free.c	\
+	$(SRC_DIR)/ft_freeintmatrix.c	\
+	$(SRC_DIR)/ft_freestr.c	\
+	$(SRC_DIR)/ft_freestrarr_r.c	\
+	$(SRC_DIR)/ft_freestrarr.c	\
+	$(SRC_DIR)/ft_freestrmatrix_r.c	\
+	$(SRC_DIR)/ft_freestrmatrix.c	\
+	$(SRC_DIR)/ft_close.c	\
 	$(SRC_DIR)/ft_putchar_fd.c	\
 	$(SRC_DIR)/ft_putstr_fd.c	\
 	$(SRC_DIR)/ft_putendl_fd.c	\
