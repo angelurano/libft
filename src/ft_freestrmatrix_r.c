@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:38:36 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/16 19:33:34 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 21:27:36 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include "libft.h"
 
-// ft_freestrmatrix_r(&(ptr)) -> char ***ptr
 char	***ft_freestrmatrix_r(char ****matrix, size_t i)
 {
 	if (matrix == NULL || *matrix == NULL)

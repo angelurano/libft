@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:18:35 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/16 13:04:57 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/16 22:18:15 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static char	*get_new_saved(char **saved, char *new_line, size_t line_len)
 
 	line = ft_substr(*saved, 0, line_len);
 	if (line == NULL)
-		return (ft_freestr(saved));
+		return (seterrno(ENOMEM), ft_freestr(saved));
 	new_line++;
 	if (new_line[0] != '\0')
 	{
 		new_saved = ft_strdup(new_line);
 		if (new_saved == NULL)
-			return (ft_freestr(&line), ft_freestr(saved));
+			return (seterrno(ENOMEM), ft_freestr(&line), ft_freestr(saved));
 	}
 	else
 		new_saved = NULL;
@@ -68,7 +68,7 @@ char	*read_until_eol_eof(int fd, char **saved, char **buffer)
 			compared = *buffer;
 			temp = ft_strjoin(*saved, *buffer);
 			if (temp == NULL)
-				return (ft_freestr(saved), ft_freestr(buffer));
+				return (seterrno(12), ft_freestr(saved), ft_freestr(buffer));
 			ft_freestr(saved);
 			*saved = temp;
 		}
@@ -87,13 +87,13 @@ char	*get_next_line(int fd)
 	if (saved[fd] == NULL)
 		saved[fd] = ft_strdup("");
 	if (saved[fd] == NULL)
-		return (NULL);
+		return (seterrno(ENOMEM), NULL);
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buffer == NULL)
-		return (ft_freestr(&saved[fd]));
+		return (seterrno(ENOMEM), ft_freestr(&saved[fd]));
 	saved[fd] = read_until_eol_eof(fd, &saved[fd], &buffer);
 	if (saved[fd] == NULL)
-		return (ft_freestr(&buffer), NULL);
+		return (seterrno(ENOMEM), ft_freestr(&buffer), NULL);
 	line = extract_line(&saved[fd]);
 	ft_freestr(&buffer);
 	return (line);
