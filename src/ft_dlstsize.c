@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_dlstsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 18:21:04 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/24 22:07:26 by migugar2         ###   ########.fr       */
+/*   Created: 2024/11/24 20:18:44 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/24 20:22:57 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_dlst.h"
 
-t_list	*ft_lstnew(void *content)
+size_t	ft_dlstsize(t_dlist *lst)
 {
-	t_list	*node;
+	size_t	size;
 
-	node = (t_list *)malloc(sizeof(t_list));
-	if (node == NULL)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }

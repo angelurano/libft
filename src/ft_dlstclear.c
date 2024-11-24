@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_dlstclear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 18:21:04 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/24 22:07:26 by migugar2         ###   ########.fr       */
+/*   Created: 2024/11/24 20:44:12 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/24 20:47:05 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_dlst.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_dlstclear(t_dlist **lst, void (*del)(void *))
 {
-	t_list	*node;
+	t_dlist	*current;
+	t_dlist	*next;
 
-	node = (t_list *)malloc(sizeof(t_list));
-	if (node == NULL)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	if (lst == NULL)
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next = current->next;
+		ft_dlstdelone(&current, del);
+		current = next;
+	}
+	*lst = NULL;
 }

@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: migugar2 <migugar2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 22:25:01 by migugar2          #+#    #+#             */
-/*   Updated: 2024/10/18 20:43:09 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/24 20:27:28 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_lst.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*current;
-
-	if (lst == NULL)
-		return (NULL);
-	current = lst;
-	while (current->next != NULL)
-		current = current->next;
-	return (current);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

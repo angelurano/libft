@@ -1,7 +1,7 @@
 NAME = libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror $(INCLUDES) # -g3 -fsanitize=address,leak,undefined
+CFLAGS = -Wall -Wextra -Werror $(INCLUDES)# -g3 -fsanitize=address,leak,undefined
 
 AR = ar rcs
 
@@ -50,6 +50,15 @@ SRC = \
 	$(SRC_DIR)/ft_lstclear.c	\
 	$(SRC_DIR)/ft_lstiter.c	\
 	$(SRC_DIR)/ft_lstmap.c	\
+	$(SRC_DIR)/ft_dlstnew.c	\
+	$(SRC_DIR)/ft_dlstadd_front.c	\
+	$(SRC_DIR)/ft_dlstsize.c	\
+	$(SRC_DIR)/ft_dlstlast.c	\
+	$(SRC_DIR)/ft_dlstadd_back.c	\
+	$(SRC_DIR)/ft_dlstdelone.c	\
+	$(SRC_DIR)/ft_dlstclear.c	\
+	$(SRC_DIR)/ft_dlstiter.c	\
+	$(SRC_DIR)/ft_dlstmap.c	\
 	$(SRC_DIR)/ft_free.c	\
 	$(SRC_DIR)/ft_freeintmatrix.c	\
 	$(SRC_DIR)/ft_freestr.c	\
