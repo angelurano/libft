@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 19:57:01 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/24 22:01:27 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/24 23:06:50 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,14 @@ typedef struct s_dlist
 }	t_dlist;
 
 t_dlist	*ft_dlstnew(void *content);
+
+// Adds the new node at the beginning of the list
 void	ft_dlstadd_front(t_dlist **lst, t_dlist *node);
+// Adds the new node at the end of the list
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *node);
+
 size_t	ft_dlstsize(t_dlist *lst);
 t_dlist	*ft_dlstlast(t_dlist *lst);
-void	ft_dlstadd_back(t_dlist **lst, t_dlist *node);
 void	ft_dlstdelone(t_dlist **lst, void (*del)(void *));
 void	ft_dlstclear(t_dlist **lst, void (*del)(void *));
 void	ft_dlstiter(t_dlist *lst, void (*f)(void *));

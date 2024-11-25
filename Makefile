@@ -59,6 +59,17 @@ SRC = \
 	$(SRC_DIR)/ft_dlstclear.c	\
 	$(SRC_DIR)/ft_dlstiter.c	\
 	$(SRC_DIR)/ft_dlstmap.c	\
+	$(SRC_DIR)/ft_stackinit.c	\
+	$(SRC_DIR)/ft_stackpush.c	\
+	$(SRC_DIR)/ft_stackpushnew.c	\
+	$(SRC_DIR)/ft_stackpop.c	\
+	$(SRC_DIR)/ft_stackpopfree.c	\
+	$(SRC_DIR)/ft_stackclear.c	\
+	$(SRC_DIR)/ft_stackfree.c	\
+	$(SRC_DIR)/ft_stackmovetop.c	\
+	$(SRC_DIR)/ft_stackrotate.c	\
+	$(SRC_DIR)/ft_stackrotaterev.c	\
+	$(SRC_DIR)/ft_stackswaptop.c	\
 	$(SRC_DIR)/ft_free.c	\
 	$(SRC_DIR)/ft_freeintmatrix.c	\
 	$(SRC_DIR)/ft_freestr.c	\
