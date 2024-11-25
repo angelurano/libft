@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/24 19:59:11 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:10:09 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@
 # include "ft_errors.h"
 # include "ft_lst.h"
 # include "ft_dlst.h"
+# include "ft_stack.h"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 
 int		ft_tolower(int c);
 int		ft_toupper(int c);
