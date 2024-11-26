@@ -34,6 +34,9 @@ SRC = \
 	$(SRC_DIR)/ft_strnstr.c	\
 	$(SRC_DIR)/ft_atoi.c	\
 	$(SRC_DIR)/ft_indexof.c	\
+	$(SRC_DIR)/ft_quicksort.c	\
+	$(SRC_DIR)/ft_insertionsort.c	\
+	$(SRC_DIR)/ft_tosorted.c	\
 	$(SRC_DIR)/ft_calloc.c	\
 	$(SRC_DIR)/ft_strdup.c	\
 	$(SRC_DIR)/ft_substr.c	\
