@@ -33,6 +33,7 @@ SRC = \
 	$(SRC_DIR)/ft_strlcat.c	\
 	$(SRC_DIR)/ft_strnstr.c	\
 	$(SRC_DIR)/ft_atoi.c	\
+	$(SRC_DIR)/ft_indexof.c	\
 	$(SRC_DIR)/ft_calloc.c	\
 	$(SRC_DIR)/ft_strdup.c	\
 	$(SRC_DIR)/ft_substr.c	\
