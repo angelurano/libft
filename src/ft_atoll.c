@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 17:42:45 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/27 19:37:18 by migugar2         ###   ########.fr       */
+/*   Created: 2024/11/27 19:35:13 by migugar2          #+#    #+#             */
+/*   Updated: 2024/11/27 19:45:22 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long long	ft_atoll(const char *nptr)
 {
-	int		r;
-	int		sign;
-	size_t	i;
+	long long	n;
+	int			sign;
+	size_t		i;
 
 	if (nptr == NULL || *nptr == '\0')
 		return (0);
-	r = 0;
+	n = 0;
 	sign = 1;
 	i = 0;
 	while (nptr[i] && ft_isspace(nptr[i]))
@@ -33,9 +33,9 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] && ft_isdigit(nptr[i]))
 	{
-		r = (r * 10) + (nptr[i] - '0');
+		n = (n * 10) + (nptr[i] - '0');
 		i++;
 	}
-	r = r * sign;
-	return (r);
+	n = n * sign;
+	return (n);
 }
