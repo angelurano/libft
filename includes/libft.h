@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/27 19:47:41 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/11/30 14:56:04 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int			ft_toupper(int c);
 size_t		ft_strlen(const char *s);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
+int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void		*ft_memset(void *s, int c, size_t n);

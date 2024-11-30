@@ -22,6 +22,7 @@ SRC = \
 	$(SRC_DIR)/ft_strlen.c	\
 	$(SRC_DIR)/ft_strchr.c	\
 	$(SRC_DIR)/ft_strrchr.c	\
+	$(SRC_DIR)/ft_strcmp.c	\
 	$(SRC_DIR)/ft_strncmp.c	\
 	$(SRC_DIR)/ft_memset.c	\
 	$(SRC_DIR)/ft_bzero.c	\
