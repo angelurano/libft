@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/30 14:56:04 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/12/10 22:50:23 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size);
 char		*ft_strnstr(const char *big, const char *little, size_t len);
 
 int			ft_atoi(const char *nptr);
+int			ft_sqrt(int nb);
 long long	ft_atoll(const char *nptr);
 size_t		ft_indexof(int *arr, size_t size, int val);
 int			*ft_insertionsort(int *array, size_t size);
