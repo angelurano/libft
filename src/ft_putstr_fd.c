@@ -16,16 +16,12 @@
 int	ft_putstr_fd(int fd, char *str)
 {
 	int		count;
-	size_t	i;
 
 	if (str == NULL)
 		return (ft_putstr_fd(fd, "(null)"));
 	count = 0;
-	i = 0;
-	while (str[i])
-	{
-		count += ft_putchar_fd(fd, str[i]);
-		i++;
-	}
+	while (str[count])
+		count++;
+	write(fd, str, count);
 	return (count);
 }
