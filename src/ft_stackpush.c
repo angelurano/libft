@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 01:21:00 by migugar2          #+#    #+#             */
-/*   Updated: 2024/11/25 01:29:35 by migugar2         ###   ########.fr       */
+/*   Updated: 2024/12/31 06:21:50 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ size_t	ft_stackpush(t_stack *stack, t_dlist *node)
 	{
 		stack->top = node;
 		stack->bottom = node;
+		node->next = NULL;
 	}
 	else
 		ft_dlstadd_front(&stack->top, node);
+	node->prev = NULL;
 	stack->size++;
 	return (stack->size);
 }
