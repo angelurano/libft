@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:18:00 by migugar2          #+#    #+#             */
-/*   Updated: 2024/12/10 22:26:04 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:11:09 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	ft_sqrt(int nb)
 {
 	int	i;
 
+	if (nb <= 0)
+		return (0);
 	i = 1;
-	while (i * i < nb)
+	while (i * i < nb && i <= 2147483647 / i)
 		i++;
 	if (i * i == nb)
 		return (i);
