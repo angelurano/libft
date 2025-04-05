@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/05 07:56:26 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/05 07:56:31 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "ft_lst.h"
 # include "ft_dlst.h"
 # include "ft_stack.h"
+# include "ft_dynarr.h"
 # include "ft_dynstr.h"
 
 int			ft_isalpha(int c);

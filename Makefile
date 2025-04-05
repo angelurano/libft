@@ -79,6 +79,13 @@ SRC = \
 	$(SRC_DIR)/ft_stackrotate.c	\
 	$(SRC_DIR)/ft_stackrotaterev.c	\
 	$(SRC_DIR)/ft_stackswaptop.c	\
+	$(SRC_DIR)/ft_dynarradd.c	\
+	$(SRC_DIR)/ft_dynarrget.c	\
+	$(SRC_DIR)/ft_dynarrclear.c	\
+	$(SRC_DIR)/ft_dynarrfree.c	\
+	$(SRC_DIR)/ft_dynarrinit.c	\
+	$(SRC_DIR)/ft_dynarrnew.c	\
+	$(SRC_DIR)/ft_dynarrresize.c	\
 	$(SRC_DIR)/ft_dynstradd.c	\
 	$(SRC_DIR)/ft_dynstrfree.c	\
 	$(SRC_DIR)/ft_dynstrinit.c	\
