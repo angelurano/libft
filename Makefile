@@ -13,6 +13,7 @@ SRC_DIR = src
 SRC = \
 	$(SRC_DIR)/ft_isalpha.c	\
 	$(SRC_DIR)/ft_isdigit.c	\
+	$(SRC_DIR)/ft_isxdigit.c	\
 	$(SRC_DIR)/ft_isalnum.c	\
 	$(SRC_DIR)/ft_isascii.c	\
 	$(SRC_DIR)/ft_isprint.c	\
