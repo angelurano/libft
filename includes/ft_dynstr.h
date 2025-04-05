@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:43:44 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/02 20:56:39 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/05 03:16:37 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int			ft_dynstrresize(t_dynstr *dyn, size_t new_capacity);
 int			ft_dynstradd(t_dynstr *dyn, char el);
 int			ft_dynstrjoin(t_dynstr *dyn, const char *str);
 
-void		ft_dynstrfree(t_dynstr **dyn);
+t_dynstr	*ft_dynstrfree(t_dynstr **dyn);
 
 #endif

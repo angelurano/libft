@@ -6,18 +6,19 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 20:54:47 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/02 20:57:24 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/05 03:17:22 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dynstr.h"
 
-void	ft_dynstrfree(t_dynstr **dyn)
+t_dynstr	*ft_dynstrfree(t_dynstr **dyn)
 {
 	if (dyn == NULL || *dyn == NULL)
-		return ;
+		return (NULL);
 	if ((*dyn)->data != NULL)
 		free((*dyn)->data);
 	free(*dyn);
 	*dyn = NULL;
+	return (NULL);
 }
