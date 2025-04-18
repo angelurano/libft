@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 19:41:11 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/05 07:56:31 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/18 18:47:17 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char		*ft_strnstr(const char *big, const char *little, size_t len);
 
 int			ft_atoi(const char *nptr);
 int			ft_sqrt(int nb);
+void		ft_swap(int *a, int *b);
+void		ft_swapf(float *a, float *b);
 long long	ft_atoll(const char *nptr);
 size_t		ft_indexof(int *arr, size_t size, int val);
 int			*ft_insertionsort(int *array, size_t size);
