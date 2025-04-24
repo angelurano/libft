@@ -6,7 +6,7 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 18:38:22 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/02 20:58:38 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/24 02:18:13 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static size_t	get_new_capacity(t_dynstr *dyn)
 {
 	if (dyn->capacity == 0)
 	{
-		if (DEFAULTCAPACITY > 1)
-			return (DEFAULTCAPACITY);
+		if (DYNSTR_DEFAULTCAPACITY > 1)
+			return (DYNSTR_DEFAULTCAPACITY);
 		return (2);
 	}
 	return (dyn->capacity * 2);

@@ -6,14 +6,14 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:28:14 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/05 10:29:00 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/24 02:17:10 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_DYNARR_H
 # define FT_DYNARR_H
 
-# define DEFAULTCAPACITY 10
+# define DYNARR_DEFAULTCAPACITY 10
 
 # include <stddef.h>
 # include <stdlib.h>

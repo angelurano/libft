@@ -6,14 +6,14 @@
 /*   By: migugar2 <migugar2@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:43:44 by migugar2          #+#    #+#             */
-/*   Updated: 2025/04/05 03:16:37 by migugar2         ###   ########.fr       */
+/*   Updated: 2025/04/24 02:17:19 by migugar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_DYNSTR_H
 # define FT_DYNSTR_H
 
-# define DEFAULTCAPACITY 10
+# define DYNSTR_DEFAULTCAPACITY 10
 
 # include <stddef.h>
 # include <stdlib.h>
