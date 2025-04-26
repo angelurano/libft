@@ -22,6 +22,7 @@ SRC = \
 	$(SRC_DIR)/ft_toupper.c	\
 	$(SRC_DIR)/ft_strlen.c	\
 	$(SRC_DIR)/ft_strchr.c	\
+	$(SRC_DIR)/ft_strnchr.c	\
 	$(SRC_DIR)/ft_strrchr.c	\
 	$(SRC_DIR)/ft_strcmp.c	\
 	$(SRC_DIR)/ft_strncmp.c	\
